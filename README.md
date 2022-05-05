@@ -6,6 +6,8 @@ References:
 
 https://tailscale.com/blog/how-tailscale-works/
 
+https://tailscale.com/blog/how-nat-traversal-works/
+
 https://www.jordanwhited.com/posts/wireguard-endpoint-discovery-nat-traversal/
 
 https://git.zx2c4.com/wireguard-tools/tree/contrib/nat-hole-punching
