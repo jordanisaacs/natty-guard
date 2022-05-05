@@ -1,0 +1,15 @@
+[package]
+name = "netlink"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+smol = "1.2.5"
+futures = "0.3.21"
+bytes = "1.1.0"
+netlink-sys = { version = "0.8.2", features = [ "smol_socket", "futures" ] }
+netlink-packet-core = "0.4.2"
+netlink-packet-generic = "0.3.0"
+netlink-packet-route = "0.11.0"

@@ -1,0 +1,8 @@
+ld [12]
+jneq #0x3, drop
+ldh [20]
+jneq #0x6, drop
+ldh [22]
+jneq #0x8, drop
+ret #-1
+drop: ret #0

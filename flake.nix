@@ -32,8 +32,8 @@
       generatedCargoNix
       ;
 
-    name = "jdns";
-    natty =
+    name = "natty-guard";
+    pkg =
       (
         import
         (generatedCargoNix {
@@ -42,7 +42,8 @@
         })
         {inherit pkgs;}
       )
-      .rootCrate
+      .workspaceMembers
+      .client
       .build;
 
     nativeBuildInputs = with pkgs; [
@@ -57,11 +58,15 @@
   in
     with pkgs; {
       packages.${system} = {
-        natty = natty;
-        default = natty;
+        ${name} = pkg;
+        default = pkg;
       };
       devShells.${system}.default = mkShell {
-        inherit nativeBuildInputs;
+        nativeBuildInputs =
+          nativeBuildInputs
+          ++ [
+            pkgs.netsniff-ng # bpf compiler
+          ];
       };
     };
 }
